@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Buttons</title>
+  <title>Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,6 +17,12 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/new-admin.css" rel="stylesheet">
+
+   <!-- Adding jQuery -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+   <script src="js/admin.js"></script>
 
 </head>
 
@@ -63,11 +69,11 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <h6 class="collapse-header">Group Name:</h6>
+            <a class="collapse-item" href="utilities-color.html">Alice</a>
+            <a class="collapse-item" href="utilities-border.html">Bob</a>
+            <a class="collapse-item" href="utilities-animation.html">Cindy</a>
+            <a class="collapse-item" href="utilities-other.html">David</a>
           </div>
         </div>
       </li>
@@ -88,14 +94,11 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <a class="collapse-item" href="login.html">Doc1</a>
+            <a class="collapse-item" href="register.html">Doc2</a>
+            <a class="collapse-item" href="forgot-password.html">Doc3</a>
+            <hr class="collapse-divider"></hr>
+            <a class="collapse-item" href="404.html"><i class="fa fa-plus-circle"></i> New File</a>
           </div>
         </div>
       </li>
@@ -327,67 +330,23 @@
               <!-- Circle Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Circle Buttons</h6>
+                  <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Doc1 <i id="closeTabIcon" class="fas fa-times pull-right"></i></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Doc2 <i id="closeTabIcon" class="fas fa-times pull-right"></i></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Doc3 <i id="closeTabIcon" class="fas fa-times pull-right"></i></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
                 </div>
                 <div class="card-body">
-                  <p>Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!</p>
-                  <!-- Circle Buttons (Default) -->
-                  <div class="mb-2">
-                    <code>.btn-circle</code>
-                  </div>
-                  <a href="#" class="btn btn-primary btn-circle">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" class="btn btn-success btn-circle">
-                    <i class="fas fa-check"></i>
-                  </a>
-                  <a href="#" class="btn btn-info btn-circle">
-                    <i class="fas fa-info-circle"></i>
-                  </a>
-                  <a href="#" class="btn btn-warning btn-circle">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </a>
-                  <a href="#" class="btn btn-danger btn-circle">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                  <!-- Circle Buttons (Small) -->
-                  <div class="mt-4 mb-2">
-                    <code>.btn-circle .btn-sm</code>
-                  </div>
-                  <a href="#" class="btn btn-primary btn-circle btn-sm">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" class="btn btn-success btn-circle btn-sm">
-                    <i class="fas fa-check"></i>
-                  </a>
-                  <a href="#" class="btn btn-info btn-circle btn-sm">
-                    <i class="fas fa-info-circle"></i>
-                  </a>
-                  <a href="#" class="btn btn-warning btn-circle btn-sm">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </a>
-                  <a href="#" class="btn btn-danger btn-circle btn-sm">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                  <!-- Circle Buttons (Large) -->
-                  <div class="mt-4 mb-2">
-                    <code>.btn-circle .btn-lg</code>
-                  </div>
-                  <a href="#" class="btn btn-primary btn-circle btn-lg">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" class="btn btn-success btn-circle btn-lg">
-                    <i class="fas fa-check"></i>
-                  </a>
-                  <a href="#" class="btn btn-info btn-circle btn-lg">
-                    <i class="fas fa-info-circle"></i>
-                  </a>
-                  <a href="#" class="btn btn-warning btn-circle btn-lg">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </a>
-                  <a href="#" class="btn btn-danger btn-circle btn-lg">
-                    <i class="fas fa-trash"></i>
-                  </a>
+                  <textarea rows="20" cols="50"></textarea>
                 </div>
               </div>
 
