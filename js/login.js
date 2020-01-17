@@ -2,15 +2,15 @@ $(() => {
   $("#submitButton").click(sendLoginData);
 });
 
-const loginSuccessRedirect = ( id, token ) => {
-
+const loginSuccessRedirect = ( data ) => {
+  window.location.replace("admin.html");
 };
 
 const sendLoginData = () => {
   let inputEmail = $("#inputEmail").val();
   let inputPassword = $("#inputPassword").val();
+
   let invalidElement = document.createElement("div");
-  
   let errMessage = document.createElement("span");
   errMessage.innerText="Please enter valid email / password";
   errMessage.setAttribute("style","color:red")
@@ -21,7 +21,24 @@ const sendLoginData = () => {
       $("#loginForm").prepend(invalidElement);
   }
   else {
-    loginSuccessRedirect(inputEmail, inputPassword);
+    //send form to server
+    let loginData = {
+      email: inputEmail,
+      password: inputPassword
+    };
+    /*
+    const ajaxHandle = $.ajax({
+      url: '/login',
+      method: 'POST',
+      data: loginData,
+      success: (data) => {
+        loginSuccessRedirect(data);
+      },
+      error: (obj, err) => {
+        console.log(err);
+      }
+    }); */
+    loginSuccessRedirect(loginData);
   }
 };
 
