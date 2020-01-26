@@ -31,6 +31,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
         rel="stylesheet">
 
+    <!-- Adding jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 </head>
 
 <body>
@@ -130,16 +134,17 @@
             </div>
             <div class="type_msg">
                 <div class="input_msg_write">
-                    <textarea name="" class="form-control type_msg" placeholder="Type your message..." ></textarea>
+                    <textarea id="sendText" name="" class="form-control type_msg" placeholder="Type your message..." ></textarea>
                 </div>
                 
             </div>
             <div class="msg_action">
-                <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
+                <button id="sendButton" class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
                     aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
+    <script src='js/chatbox.js'></script>
 
 </body>
 
