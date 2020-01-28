@@ -151,6 +151,21 @@ img{ max-width:100%;}
     outline: 0;
     box-shadow: none;
 }
+.msg_send_btn:disabled {
+  background: #ced0d4 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: rgba(62, 75, 107, 0.555);
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+  box-shadow: none;
+  text-shadow: none;
+}
 .messaging { padding: 0 0 50px 0;}
 .msg_history {
   height: 500px;
@@ -159,5 +174,10 @@ img{ max-width:100%;}
 
 .msg_action {
     position: relative;
+}
+
+.type_msg.highlight {
+  border: 2px dashed indigo;
+  background: mediumslateblue;
 }
 
