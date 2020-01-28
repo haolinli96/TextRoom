@@ -181,3 +181,9 @@ img{ max-width:100%;}
   background: mediumslateblue;
 }
 
+.msg_image {
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  padding: 1px;
+  width: 430px;
+}
