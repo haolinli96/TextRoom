@@ -15,6 +15,13 @@ $(() => {
         typeBox.addEventListener(eventName, () => typeBox.classList.remove('highlight'), false)
     })
     typeBox.addEventListener('drop', sendFile, false);
+
+    const modal = document.getElementById("myModal");
+    const span = document.getElementsByClassName("close")[0];
+    span.onclick = function() { 
+        modal.style.display = "none";
+    }
+   
 })
 const preventDefaults = (e) => {
     e.preventDefault();
@@ -38,6 +45,9 @@ const sendClickHandler = (e) => {
         messageHistory.appendChild(newOutgoing);
         messageHistory.scrollTop = messageHistory.scrollHeight;
         document.getElementById("sendText").value = "";
+
+        const sendButton = document.getElementById("sendButton");
+        sendButton.setAttribute("disabled", "");
     }
 }
 
@@ -52,7 +62,7 @@ const sendFile = (e) => {
             img.src = reader.result;
             img.title = file.name;
             img.classList.add("msg_image");
-            console.log(img.outerHTML)
+            imageEvents(img);
 
             const outgoingNode = document.getElementsByClassName("outgoing_msg")[0];
             const newOutgoing = outgoingNode.cloneNode(true);
@@ -62,9 +72,11 @@ const sendFile = (e) => {
             + (date.getMonth() + 1) + '/' + (date.getDate() + 1)
             console.log(timeString)
             newOutgoing.childNodes[1].childNodes[3].innerHTML = timeString;
+            
             const messageHistory = document.getElementsByClassName("msg_history")[0];
             messageHistory.appendChild(newOutgoing);
             messageHistory.scrollTop = messageHistory.scrollHeight;
+            document.getElementById("sendText").value = "";
         }, false)
         reader.readAsDataURL(file);
     }
@@ -76,3 +88,13 @@ const sendFile = (e) => {
     }
     
 }
+const imageEvents = (newImage) => {
+    const modal = document.getElementById("myModal");
+    const modalImage = document.getElementById("img01");
+    newImage.addEventListener("click", function(e){
+        modal.style.display = "block";
+        modalImage.src = this.src;
+    }, false);
+}
+
+
