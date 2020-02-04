@@ -17,35 +17,44 @@ window.addEventListener('load', () => {
                 newTab.id = e.target.innerHTML;
                 newTab.childNodes[1].text = newTab.id + ' ';
                 newTab.childNodes[1].appendChild(fileTabs.childNodes[1].childNodes[1].childNodes[1].cloneNode(true));
-               
+                newTab.style.display = "block";
                 toggleFocus(fileTabs, newTab);
                 //console.log(newTab.childNodes[1].childNodes);
                 fileTabs.appendChild(newTab);
 
                 const newContent = contents.childNodes[1].cloneNode(true);
-
                 console.log(contents.childNodes[1].outerHTML);
                 console.log(newContent);
                 newContent.id = e.target.innerHTML + '-content';
+                newContent.style.display = "block";
                 toggleContent(e.target.innerHTML);
                 contents.appendChild(newContent);
 
                 newTab.addEventListener('click', (ev)=>{
                     toggleFocus(fileTabs, newTab);
                     toggleContent(newTab.id);
+                    
                 }, false);
+                closeTab(fileTabs, newTab, contents, contents.getElementsByTagName("div"));
             }
         },false);
     }
 
     const fileTabs = document.getElementsByClassName("file-tabs")[0];
     const lis = fileTabs.getElementsByTagName("li");
+    const contents = document.getElementsByClassName("card-body")[0];
+    const contentList = contents.getElementsByTagName("div");
     for(let i = 0; i < lis.length; ++i){
         lis[i].addEventListener('click', (e)=>{
             toggleFocus(fileTabs, lis[i]);
             toggleContent(e.target.innerHTML.split(' ')[0]);
         }, false);
+        closeTab(fileTabs, lis[i], contents, contentList);
+        
+       
     }
+
+    
 });
 
 
@@ -58,6 +67,20 @@ const alreadyOn = (fileTabs, tabId) => {
         }
     }
     return null;
+}
+
+const closeTab = (fileTabs, tab, contents, contentList) => {
+    const closeIcon = tab.getElementsByTagName("i")[0];
+    closeIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const tabName = tab.id;
+        fileTabs.removeChild(tab);
+        for(let i = 0; i < contentList.length; ++i){
+            if(contentList[i].id.startsWith(tabName)){
+                contents.removeChild(contentList[i]);
+            }
+        }
+    }, false);
 }
 
 const toggleContent = (fileName) => {
