@@ -6,7 +6,7 @@
     display: none;
 }
   
-a:hover #closeTabIcon {
+.nav-item:hover #closeTabIcon {
     display: inline-block;
 }
 

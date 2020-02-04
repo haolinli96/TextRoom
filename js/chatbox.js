@@ -4,6 +4,7 @@ $(() => {
     const textArea = document.getElementById("sendText");
     textArea.addEventListener("input", (e) => 
       textArea.value ? sendButton.removeAttribute("disabled") : sendButton.setAttribute("disabled", ""), false);
+      
     const typeBox = document.getElementsByClassName("type_msg")[0];
     ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         typeBox.addEventListener(eventName, preventDefaults, false)

@@ -1,3 +1,58 @@
+window.addEventListener('load', () => {
+    const groupFile = document.getElementsByClassName("group-file");
+    for(let i = 0; i < groupFile.length; ++i){
+        groupFile[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const fileTabs = document.getElementsByClassName("file-tabs")[0];
+            const findTab = alreadyOn(fileTabs, e.target.innerHTML);
+            if(findTab){
+                toggleFocus(fileTabs, findTab);
+            }
+            else{
+                const newTab = fileTabs.childNodes[1].cloneNode(true);
+                console.log(e.target.innerHTML)
+                newTab.id = e.target.innerHTML;
+                newTab.childNodes[1].text = newTab.id + ' ';
+                newTab.childNodes[1].appendChild(fileTabs.childNodes[1].childNodes[1].childNodes[1].cloneNode(true));
+                newTab.addEventListener('click', (ev)=>{
+                    toggleFocus(fileTabs, newTab);
+                }, false);
+                toggleFocus(fileTabs, newTab);
+                console.log(newTab.childNodes[1].childNodes);
+                fileTabs.appendChild(newTab);
+            }
+        },false);
+    }
+
+    const fileTabs = document.getElementsByClassName("file-tabs")[0];
+    const lis = fileTabs.getElementsByTagName("li");
+    for(let i = 0; i < lis.length; ++i){
+        lis[i].addEventListener('click', (e)=>{
+            toggleFocus(fileTabs, lis[i]);
+        }, false);
+    }
+});
+
+
+
+const alreadyOn = (fileTabs, tabId) => {
+    const lis = fileTabs.getElementsByTagName("li");
+    for(let i = 0; i < lis.length; ++i){
+        if(lis[i].id == tabId){
+            return lis[i];
+        }
+    }
+    return null;
+}
+
+const toggleFocus = (fileTabs, focusTab) => {
+    const lis = fileTabs.getElementsByTagName("li");
+    for(let i = 0; i < lis.length; ++i){
+        lis[i].childNodes[1].classList.remove("active");
+    }
+    focusTab.childNodes[1].classList.add("active");
+}
 
 let tabNumber = 0;
 

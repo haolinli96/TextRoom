@@ -69,7 +69,7 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Group Name:</h6>
+            <h6 class="collapse-header">Name:</h6>
             <a class="collapse-item" href="utilities-color.html">Alice</a>
             <a class="collapse-item" href="utilities-border.html">Bob</a>
             <a class="collapse-item" href="utilities-animation.html">Cindy</a>
@@ -96,9 +96,9 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="login.html">Doc1</a>
-            <a class="collapse-item" href="register.html">Doc2</a>
-            <a class="collapse-item" href="forgot-password.html">Doc3</a>
+            <a class="collapse-item group-file" href="login.html">Doc1</a>
+            <a class="collapse-item group-file" href="register.html">Doc2</a>
+            <a class="collapse-item group-file" href="forgot-password.html">Doc3</a>
             <hr class="collapse-divider"></hr>
             <a class="collapse-item" href="404.html"><i class="fa fa-plus-circle"></i> New File</a>
           </div>
@@ -332,16 +332,14 @@
               <!-- Circle Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <ul class="nav nav-pills nav-justified">
-                    <li class="nav-item">
+                  <ul class="nav nav-pills nav-justified file-tabs">
+                    <li class="nav-item" id="Doc1">
                       <a class="nav-link active" href="#">Doc1 <i id="closeTabIcon" class="fas fa-times pull-right"></i></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="Doc2">
                       <a class="nav-link" href="#">Doc2 <i id="closeTabIcon" class="fas fa-times pull-right"></i></a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Doc3 <i id="closeTabIcon" class="fas fa-times pull-right"></i></a>
-                    </li>
+                    
                     <li class="nav-item">
                       <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
