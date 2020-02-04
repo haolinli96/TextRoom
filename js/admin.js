@@ -5,22 +5,35 @@ window.addEventListener('load', () => {
             e.preventDefault();
             e.stopPropagation();
             const fileTabs = document.getElementsByClassName("file-tabs")[0];
+            const contents = document.getElementsByClassName("card-body")[0];
             const findTab = alreadyOn(fileTabs, e.target.innerHTML);
             if(findTab){
                 toggleFocus(fileTabs, findTab);
+                toggleContent(e.target.innerHTML);
             }
             else{
                 const newTab = fileTabs.childNodes[1].cloneNode(true);
-                console.log(e.target.innerHTML)
+                //console.log(e.target.innerHTML)
                 newTab.id = e.target.innerHTML;
                 newTab.childNodes[1].text = newTab.id + ' ';
                 newTab.childNodes[1].appendChild(fileTabs.childNodes[1].childNodes[1].childNodes[1].cloneNode(true));
+               
+                toggleFocus(fileTabs, newTab);
+                //console.log(newTab.childNodes[1].childNodes);
+                fileTabs.appendChild(newTab);
+
+                const newContent = contents.childNodes[1].cloneNode(true);
+
+                console.log(contents.childNodes[1].outerHTML);
+                console.log(newContent);
+                newContent.id = e.target.innerHTML + '-content';
+                toggleContent(e.target.innerHTML);
+                contents.appendChild(newContent);
+
                 newTab.addEventListener('click', (ev)=>{
                     toggleFocus(fileTabs, newTab);
+                    toggleContent(newTab.id);
                 }, false);
-                toggleFocus(fileTabs, newTab);
-                console.log(newTab.childNodes[1].childNodes);
-                fileTabs.appendChild(newTab);
             }
         },false);
     }
@@ -30,6 +43,7 @@ window.addEventListener('load', () => {
     for(let i = 0; i < lis.length; ++i){
         lis[i].addEventListener('click', (e)=>{
             toggleFocus(fileTabs, lis[i]);
+            toggleContent(e.target.innerHTML.split(' ')[0]);
         }, false);
     }
 });
@@ -44,6 +58,23 @@ const alreadyOn = (fileTabs, tabId) => {
         }
     }
     return null;
+}
+
+const toggleContent = (fileName) => {
+    console.log(fileName);
+    const contents = document.getElementsByClassName("card-body")[0].getElementsByTagName("div");
+    for(let i = 0; i < contents.length; ++i){
+        if(contents[i].id.startsWith(fileName)){
+            console.log(i);
+            contents[i].style.display = "block";
+            console.log(contents[i].outerHTML);
+        }
+        else{
+            contents[i].style.display = "none";
+            console.log(contents[i].outerHTML);
+        }
+    }
+
 }
 
 const toggleFocus = (fileTabs, focusTab) => {
